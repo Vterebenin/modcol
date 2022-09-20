@@ -2,6 +2,18 @@
   "name": "modcol",
   "version": "0.0.21",
   "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/modcol.umd.cjs",
+  "module": "./dist/modcol.js",
+  "exports": {
+    ".": {
+      "import": "./dist/modcol.js",
+      "require": "./dist/modcol.umd.cjs"
+    }
+  },
   "scripts": {
     "test:unit": "vitest --environment jsdom",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
