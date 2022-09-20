@@ -30,5 +30,6 @@ export default defineConfig({
             input: 'src/index.js',
             external: ['lodash'],
         },
+        sourcemap: true,
     },
 });
