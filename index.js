@@ -1,3 +1,3 @@
-import { BaseCollection, BaseModel } from "@";
+import { BaseCollection, BaseModel } from "./src";
 
 export default { BaseCollection, BaseModel };
