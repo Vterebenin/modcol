@@ -1,6 +1,6 @@
 {
   "name": "modcol",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "scripts": {
     "test:unit": "vitest --environment jsdom",
