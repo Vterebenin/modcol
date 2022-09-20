@@ -17,5 +17,12 @@
     "prettier": "^2.7.1",
     "vite": "^3.0.9",
     "vitest": "^0.23.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vterebenin/modcol"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
