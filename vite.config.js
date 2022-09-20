@@ -8,10 +8,6 @@ const BASE = {
   external: ["lodash"],
   plugins: [],
   input: "src/index.js",
-  // output: [
-  //   { file: pkg.main, format: "js" },
-  //   { file: pkg.module, format: "es" },
-  // ],
 };
 
 // https://vitejs.dev/config/
