@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 
 const BASE = {
@@ -10,9 +10,14 @@ const BASE = {
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
-        vue(),
-        '@babel/plugin-proposal-optional-chaining',
-        '@babel/plugin-proposal-nullish-coalescing-operator',
+        vue({
+            babel: {
+                plugins: [
+                    '@babel/plugin-proposal-optional-chaining',
+                    '@babel/plugin-proposal-nullish-coalescing-operator',
+                ],
+            },
+        }),
     ],
     test: {
         globals: true,
