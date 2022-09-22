@@ -1,12 +1,24 @@
 import get from 'lodash/get';
+import uniqueId from 'lodash/uniqueId';
 
 export default class BaseModel {
-    constructor(data = null) {
+    constructor(data = null, options = this.getDefaultOptions) {
         this.errors = {};
         this.loading = false;
+        this._uid = uniqueId();
         if (data) {
             this.set(data);
         }
+    }
+
+    defaultState() {
+        return {};
+    }
+
+    clearState() {
+        this.loading = false;
+        this.errors = {};
+        this.set(this.defaultState());
     }
 
     get(prop, defaultValue) {
@@ -76,7 +88,8 @@ export default class BaseModel {
         return this.validateAndMakeRequest(payload, context, this.delete);
     }
 
-    afterFetch() {}
+    afterFetch() {
+    }
 
     async makeRequest(payload, reqFunc) {
         if (reqFunc) {

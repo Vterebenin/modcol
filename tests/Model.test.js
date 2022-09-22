@@ -1,16 +1,13 @@
-import { test, expect } from 'vitest';
+import {test, expect} from 'vitest';
 import {BaseModel} from '../src';
+import * as _ from 'lodash';
 
-// Edit an assertion and save to see HMR in action
-class Task extends BaseModel {
-    constructor() {
-        super();
-        console.log('hello world');
-    }
-}
+describe('Model', () => {
+    test('should automatically generate unique incrementing ids', () => {
+        let base = (new BaseModel())._uid;
 
-test('Should have validations', () => {
-    const task = new Task();
-    const validation = task.validation();
-    expect(validation).toStrictEqual({});
+        expect((new BaseModel())._uid).to.equal(_.toString(_.toSafeInteger(base) + 1));
+        expect((new BaseModel())._uid).to.equal(_.toString(_.toSafeInteger(base) + 2));
+        expect((new BaseModel())._uid).to.equal(_.toString(_.toSafeInteger(base) + 3));
+    });
 });
