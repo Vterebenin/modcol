@@ -33,7 +33,6 @@ export default defineConfig({
             plugins: [sourcemaps()],
             output: {
                 sourcemap: true,
-                so
             },
         },
     },

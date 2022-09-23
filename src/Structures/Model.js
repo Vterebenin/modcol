@@ -1,8 +1,10 @@
 import get from 'lodash/get';
 import uniqueId from 'lodash/uniqueId';
+import {autobind} from '../utils.js';
 
 export default class BaseModel {
-    constructor(data = null, options = this.getDefaultOptions) {
+    constructor(data = null) {
+        autobind(this);
         this.errors = {};
         this.loading = false;
         this._uid = uniqueId();
@@ -61,7 +63,9 @@ export default class BaseModel {
         try {
             response = await requestFunc(payload);
         } catch (e) {
+            console.error(e);
             response = e;
+            return false;
         } finally {
             this.loading = false;
         }
@@ -88,6 +92,7 @@ export default class BaseModel {
         return this.validateAndMakeRequest(payload, context, this.delete);
     }
 
+    // TODO: change to events
     afterFetch() {
     }
 
